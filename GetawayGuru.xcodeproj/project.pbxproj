@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4377FCE42B0D8AF700A5010E /* GetawayGuruApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377FCE32B0D8AF700A5010E /* GetawayGuruApp.swift */; };
+		4377FCE62B0D8AF700A5010E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377FCE52B0D8AF700A5010E /* ContentView.swift */; };
+		4377FCE82B0D8AF800A5010E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4377FCE72B0D8AF800A5010E /* Assets.xcassets */; };
+		4377FCEB2B0D8AF800A5010E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4377FCEA2B0D8AF800A5010E /* Preview Assets.xcassets */; };
+		4377FCF52B0D8AF800A5010E /* GetawayGuruTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377FCF42B0D8AF800A5010E /* GetawayGuruTests.swift */; };
+		4377FCFF2B0D8AF800A5010E /* GetawayGuruUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377FCFE2B0D8AF800A5010E /* GetawayGuruUITests.swift */; };
+		4377FD012B0D8AF800A5010E /* GetawayGuruUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377FD002B0D8AF800A5010E /* GetawayGuruUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4377FCF12B0D8AF800A5010E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4377FCD82B0D8AF700A5010E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4377FCDF2B0D8AF700A5010E;
+			remoteInfo = GetawayGuru;
+		};
+		4377FCFB2B0D8AF800A5010E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4377FCD82B0D8AF700A5010E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4377FCDF2B0D8AF700A5010E;
+			remoteInfo = GetawayGuru;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4377FCE02B0D8AF700A5010E /* GetawayGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetawayGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4377FCE32B0D8AF700A5010E /* GetawayGuruApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetawayGuruApp.swift; sourceTree = "<group>"; };
+		4377FCE52B0D8AF700A5010E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4377FCE72B0D8AF800A5010E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4377FCEA2B0D8AF800A5010E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4377FCF02B0D8AF800A5010E /* GetawayGuruTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetawayGuruTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4377FCF42B0D8AF800A5010E /* GetawayGuruTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetawayGuruTests.swift; sourceTree = "<group>"; };
+		4377FCFA2B0D8AF800A5010E /* GetawayGuruUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetawayGuruUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4377FCFE2B0D8AF800A5010E /* GetawayGuruUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetawayGuruUITests.swift; sourceTree = "<group>"; };
+		4377FD002B0D8AF800A5010E /* GetawayGuruUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetawayGuruUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4377FCDD2B0D8AF700A5010E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4377FCED2B0D8AF800A5010E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4377FCF72B0D8AF800A5010E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4377FCD72B0D8AF700A5010E = {
+			isa = PBXGroup;
+			children = (
+				4377FCE22B0D8AF700A5010E /* GetawayGuru */,
+				4377FCF32B0D8AF800A5010E /* GetawayGuruTests */,
+				4377FCFD2B0D8AF800A5010E /* GetawayGuruUITests */,
+				4377FCE12B0D8AF700A5010E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4377FCE12B0D8AF700A5010E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4377FCE02B0D8AF700A5010E /* GetawayGuru.app */,
+				4377FCF02B0D8AF800A5010E /* GetawayGuruTests.xctest */,
+				4377FCFA2B0D8AF800A5010E /* GetawayGuruUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4377FCE22B0D8AF700A5010E /* GetawayGuru */ = {
+			isa = PBXGroup;
+			children = (
+				4377FCE32B0D8AF700A5010E /* GetawayGuruApp.swift */,
+				4377FCE52B0D8AF700A5010E /* ContentView.swift */,
+				4377FCE72B0D8AF800A5010E /* Assets.xcassets */,
+				4377FCE92B0D8AF800A5010E /* Preview Content */,
+			);
+			path = GetawayGuru;
+			sourceTree = "<group>";
+		};
+		4377FCE92B0D8AF800A5010E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4377FCEA2B0D8AF800A5010E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4377FCF32B0D8AF800A5010E /* GetawayGuruTests */ = {
+			isa = PBXGroup;
+			children = (
+				4377FCF42B0D8AF800A5010E /* GetawayGuruTests.swift */,
+			);
+			path = GetawayGuruTests;
+			sourceTree = "<group>";
+		};
+		4377FCFD2B0D8AF800A5010E /* GetawayGuruUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4377FCFE2B0D8AF800A5010E /* GetawayGuruUITests.swift */,
+				4377FD002B0D8AF800A5010E /* GetawayGuruUITestsLaunchTests.swift */,
+			);
+			path = GetawayGuruUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4377FCDF2B0D8AF700A5010E /* GetawayGuru */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4377FD042B0D8AF800A5010E /* Build configuration list for PBXNativeTarget "GetawayGuru" */;
+			buildPhases = (
+				4377FCDC2B0D8AF700A5010E /* Sources */,
+				4377FCDD2B0D8AF700A5010E /* Frameworks */,
+				4377FCDE2B0D8AF700A5010E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GetawayGuru;
+			productName = GetawayGuru;
+			productReference = 4377FCE02B0D8AF700A5010E /* GetawayGuru.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4377FCEF2B0D8AF800A5010E /* GetawayGuruTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4377FD072B0D8AF800A5010E /* Build configuration list for PBXNativeTarget "GetawayGuruTests" */;
+			buildPhases = (
+				4377FCEC2B0D8AF800A5010E /* Sources */,
+				4377FCED2B0D8AF800A5010E /* Frameworks */,
+				4377FCEE2B0D8AF800A5010E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4377FCF22B0D8AF800A5010E /* PBXTargetDependency */,
+			);
+			name = GetawayGuruTests;
+			productName = GetawayGuruTests;
+			productReference = 4377FCF02B0D8AF800A5010E /* GetawayGuruTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4377FCF92B0D8AF800A5010E /* GetawayGuruUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4377FD0A2B0D8AF800A5010E /* Build configuration list for PBXNativeTarget "GetawayGuruUITests" */;
+			buildPhases = (
+				4377FCF62B0D8AF800A5010E /* Sources */,
+				4377FCF72B0D8AF800A5010E /* Frameworks */,
+				4377FCF82B0D8AF800A5010E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4377FCFC2B0D8AF800A5010E /* PBXTargetDependency */,
+			);
+			name = GetawayGuruUITests;
+			productName = GetawayGuruUITests;
+			productReference = 4377FCFA2B0D8AF800A5010E /* GetawayGuruUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4377FCD82B0D8AF700A5010E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					4377FCDF2B0D8AF700A5010E = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					4377FCEF2B0D8AF800A5010E = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 4377FCDF2B0D8AF700A5010E;
+					};
+					4377FCF92B0D8AF800A5010E = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 4377FCDF2B0D8AF700A5010E;
+					};
+				};
+			};
+			buildConfigurationList = 4377FCDB2B0D8AF700A5010E /* Build configuration list for PBXProject "GetawayGuru" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4377FCD72B0D8AF700A5010E;
+			productRefGroup = 4377FCE12B0D8AF700A5010E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4377FCDF2B0D8AF700A5010E /* GetawayGuru */,
+				4377FCEF2B0D8AF800A5010E /* GetawayGuruTests */,
+				4377FCF92B0D8AF800A5010E /* GetawayGuruUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4377FCDE2B0D8AF700A5010E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4377FCEB2B0D8AF800A5010E /* Preview Assets.xcassets in Resources */,
+				4377FCE82B0D8AF800A5010E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4377FCEE2B0D8AF800A5010E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4377FCF82B0D8AF800A5010E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4377FCDC2B0D8AF700A5010E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4377FCE62B0D8AF700A5010E /* ContentView.swift in Sources */,
+				4377FCE42B0D8AF700A5010E /* GetawayGuruApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4377FCEC2B0D8AF800A5010E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4377FCF52B0D8AF800A5010E /* GetawayGuruTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4377FCF62B0D8AF800A5010E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4377FD012B0D8AF800A5010E /* GetawayGuruUITestsLaunchTests.swift in Sources */,
+				4377FCFF2B0D8AF800A5010E /* GetawayGuruUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4377FCF22B0D8AF800A5010E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4377FCDF2B0D8AF700A5010E /* GetawayGuru */;
+			targetProxy = 4377FCF12B0D8AF800A5010E /* PBXContainerItemProxy */;
+		};
+		4377FCFC2B0D8AF800A5010E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4377FCDF2B0D8AF700A5010E /* GetawayGuru */;
+			targetProxy = 4377FCFB2B0D8AF800A5010E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4377FD022B0D8AF800A5010E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4377FD032B0D8AF800A5010E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4377FD052B0D8AF800A5010E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GetawayGuru/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = huh.GetawayGuru;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4377FD062B0D8AF800A5010E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GetawayGuru/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = huh.GetawayGuru;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4377FD082B0D8AF800A5010E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = huh.GetawayGuruTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GetawayGuru.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GetawayGuru";
+			};
+			name = Debug;
+		};
+		4377FD092B0D8AF800A5010E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = huh.GetawayGuruTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GetawayGuru.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GetawayGuru";
+			};
+			name = Release;
+		};
+		4377FD0B2B0D8AF800A5010E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = huh.GetawayGuruUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GetawayGuru;
+			};
+			name = Debug;
+		};
+		4377FD0C2B0D8AF800A5010E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = huh.GetawayGuruUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GetawayGuru;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4377FCDB2B0D8AF700A5010E /* Build configuration list for PBXProject "GetawayGuru" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4377FD022B0D8AF800A5010E /* Debug */,
+				4377FD032B0D8AF800A5010E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4377FD042B0D8AF800A5010E /* Build configuration list for PBXNativeTarget "GetawayGuru" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4377FD052B0D8AF800A5010E /* Debug */,
+				4377FD062B0D8AF800A5010E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4377FD072B0D8AF800A5010E /* Build configuration list for PBXNativeTarget "GetawayGuruTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4377FD082B0D8AF800A5010E /* Debug */,
+				4377FD092B0D8AF800A5010E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4377FD0A2B0D8AF800A5010E /* Build configuration list for PBXNativeTarget "GetawayGuruUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4377FD0B2B0D8AF800A5010E /* Debug */,
+				4377FD0C2B0D8AF800A5010E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4377FCD82B0D8AF700A5010E /* Project object */;
+}
