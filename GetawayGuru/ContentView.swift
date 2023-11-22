@@ -39,7 +39,6 @@ struct WelcomeView: View {
                     Spacer()
                         .frame(height: 250)
                     Button(action: {
-                        //                    LogInView()
                         isPresented = true
                     }, label: {
                         ZStack{
@@ -64,10 +63,66 @@ struct WelcomeView: View {
 
 struct LogInView: View {
     var body: some View {
-        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
+        let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
+        @State var username: String = ""
+        @State var password: String = ""
+        NavigationStack{
+            ZStack{
+                Rectangle()
+                    .foregroundStyle(ggblue)
+                    .frame(height: 950)
+                VStack{
+                    HStack{
+                        Image("Travel symbols 1")
+                            .frame(width:100, height:100)
+                        Spacer()
+                            .frame(width: 40)
+                        Text("GetawayGuru")
+                            .font(.title)
+                            .foregroundStyle(.white)
+                    }
+                    Spacer()
+                        .frame(height: 150)
+                    TextField(
+                        "Username",
+                        text: $username
+                    )
+                    .frame(width: 336)
+                    TextField(
+                        "Password",
+                        text: $password
+                    )
+                    .frame(width:336)
+                    Spacer()
+                        .frame(height: 120)
+                    Button(action: {
+                    }, label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15.0)
+                                .frame(width: 175, height: 58)
+                                .foregroundStyle(.white)
+                            Text("Sign Up")
+                                .foregroundStyle(.black)
+                        }
+                    })
+                    Button(action: {
+                    }, label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15.0)
+                                .frame(width: 175, height: 58)
+                                .foregroundStyle(.white)
+                            Text("Log In")
+                                .foregroundStyle(.black)
+                        }
+                    })
+                }
+                .textFieldStyle(.roundedBorder)
+            }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
+//    LogInView()
     ContentView()
 }
