@@ -14,6 +14,9 @@
 		4377FCF52B0D8AF800A5010E /* GetawayGuruTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377FCF42B0D8AF800A5010E /* GetawayGuruTests.swift */; };
 		4377FCFF2B0D8AF800A5010E /* GetawayGuruUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377FCFE2B0D8AF800A5010E /* GetawayGuruUITests.swift */; };
 		4377FD012B0D8AF800A5010E /* GetawayGuruUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377FD002B0D8AF800A5010E /* GetawayGuruUITestsLaunchTests.swift */; };
+		43DF8A242B17337400CCB899 /* Preparation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DF8A232B17337400CCB899 /* Preparation.swift */; };
+		43DF8A252B17337400CCB899 /* Preparation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DF8A232B17337400CCB899 /* Preparation.swift */; };
+		43DF8A262B17337400CCB899 /* Preparation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DF8A232B17337400CCB899 /* Preparation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,7 @@
 		4377FCFA2B0D8AF800A5010E /* GetawayGuruUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetawayGuruUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4377FCFE2B0D8AF800A5010E /* GetawayGuruUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetawayGuruUITests.swift; sourceTree = "<group>"; };
 		4377FD002B0D8AF800A5010E /* GetawayGuruUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetawayGuruUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		43DF8A232B17337400CCB899 /* Preparation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preparation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 			children = (
 				4377FCE32B0D8AF700A5010E /* GetawayGuruApp.swift */,
 				4377FCE52B0D8AF700A5010E /* ContentView.swift */,
+				43DF8A232B17337400CCB899 /* Preparation.swift */,
 				4377FCE72B0D8AF800A5010E /* Assets.xcassets */,
 				4377FCE92B0D8AF800A5010E /* Preview Content */,
 			);
@@ -259,6 +264,7 @@
 			files = (
 				4377FCE62B0D8AF700A5010E /* ContentView.swift in Sources */,
 				4377FCE42B0D8AF700A5010E /* GetawayGuruApp.swift in Sources */,
+				43DF8A242B17337400CCB899 /* Preparation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4377FCF52B0D8AF800A5010E /* GetawayGuruTests.swift in Sources */,
+				43DF8A252B17337400CCB899 /* Preparation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +283,7 @@
 			files = (
 				4377FD012B0D8AF800A5010E /* GetawayGuruUITestsLaunchTests.swift in Sources */,
 				4377FCFF2B0D8AF800A5010E /* GetawayGuruUITests.swift in Sources */,
+				43DF8A262B17337400CCB899 /* Preparation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
