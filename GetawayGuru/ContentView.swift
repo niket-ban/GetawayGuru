@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+class Trip{
+    var location: String?
+    var totalBudget = 0
+    var BudgetSpent = 0
+    var FoodBudget = 0
+    var FoodBudgetSpent = 0
+    var GasBudget = 0
+    var GasBudgetSpent = 0
+    var HotelBudget = 0
+    var HotelBudgetSpent = 0
+}
+
 
 struct ContentView: View {
     let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
