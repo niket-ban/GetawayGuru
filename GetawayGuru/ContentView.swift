@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseAuth
 
 class Trip{
     var location: String?
@@ -17,6 +20,37 @@ class Trip{
     var GasBudgetSpent = 0
     var HotelBudget = 0
     var HotelBudgetSpent = 0
+}
+
+func signUpWithEmailPassword(email: String, password: String) async -> Bool {
+    do {
+        try await Auth.auth().createUser(withEmail: email, password: password)
+        return true
+    }
+    catch {
+        print(error)
+        return false
+    }
+}
+
+func signInWithEmailPassword(email: String, password: String) async -> Bool {
+    do {
+        try await Auth.auth().signIn(withEmail: email, password: password)
+        return true
+    }
+    catch {
+        print(error)
+        return false
+    }
+}
+
+func signOut(){
+    do {
+        try Auth.auth().signOut()
+    }
+    catch {
+        print(error)
+    }
 }
 
 
@@ -74,10 +108,10 @@ struct WelcomeView: View {
 }
 
 struct LogInView: View {
+    @State private var username: String = ""
+    @State private var password: String = ""
     var body: some View {
         let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
-        @State var username: String = ""
-        @State var password: String = ""
         NavigationStack{
             ZStack{
                 Rectangle()
@@ -96,11 +130,11 @@ struct LogInView: View {
                     Spacer()
                         .frame(height: 150)
                     TextField(
-                        "Username",
+                        "Email",
                         text: $username
                     )
                     .frame(width: 336)
-                    TextField(
+                    SecureField(
                         "Password",
                         text: $password
                     )
@@ -108,6 +142,9 @@ struct LogInView: View {
                     Spacer()
                         .frame(height: 120)
                     Button(action: {
+                        Task {
+                            await signUpWithEmailPassword(email: username, password: password)
+                        }
                     }, label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 15.0)
@@ -118,6 +155,9 @@ struct LogInView: View {
                         }
                     })
                     Button(action: {
+                        Task{
+                            await signInWithEmailPassword(email:username, password:password)
+                        }
                     }, label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 15.0)
@@ -135,6 +175,6 @@ struct LogInView: View {
 }
 
 #Preview {
-//    LogInView()
-    ContentView()
+    LogInView()
+//    ContentView()
 }
