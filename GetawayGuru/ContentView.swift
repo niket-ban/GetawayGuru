@@ -110,6 +110,7 @@ struct WelcomeView: View {
 struct LogInView: View {
     @State private var username: String = ""
     @State private var password: String = ""
+    @State private var isPresented = false
     var body: some View {
         let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
         NavigationStack{
@@ -156,8 +157,9 @@ struct LogInView: View {
                     })
                     Button(action: {
                         Task{
-                            await signInWithEmailPassword(email:username, password:password)
+                            await isPresented = signInWithEmailPassword(email:username, password:password)
                         }
+                        
                     }, label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 15.0)
@@ -167,6 +169,9 @@ struct LogInView: View {
                                 .foregroundStyle(.black)
                         }
                     })
+                    .navigationDestination(isPresented: $isPresented){
+                        ProfileView()
+                    }
                 }
                 .textFieldStyle(.roundedBorder)
             }
@@ -174,7 +179,64 @@ struct LogInView: View {
     }
 }
 
+struct ProfileView: View {
+    @State private var isLoginPresented = false
+    var body: some View {
+        let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
+        NavigationStack{
+            ZStack{
+                VStack{
+                    HStack{
+                        //profile header
+                        Image("image 5")
+                            .frame(width:100, height:100)
+                        Text("My Profile")
+                            .font(.largeTitle)
+                            .foregroundStyle(ggblue)
+                        Spacer()
+                            .frame(width: 10)
+                        VStack{
+                            Spacer()
+                                .frame(height: 70)
+                            Button(action: {
+                                signOut()
+                                isLoginPresented = true
+                            }, label: {
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 15.0)
+                                        .frame(width: 105, height: 27)
+                                        .foregroundStyle(ggblue)
+                                    Text("Log Out")
+                                        .foregroundStyle(.white)
+                                }
+                            })
+                            .navigationDestination(isPresented: $isLoginPresented){
+                                LogInView()
+                            }
+                        }
+                    }
+                    Spacer()
+                        .frame(height: 50)
+                    HStack{
+                        Spacer()
+                            .frame(width: 15)
+                        Text("My Trips")
+                            .font(.largeTitle)
+                            .foregroundStyle(ggblue)
+                        Spacer()
+                    }
+
+                    //trip links
+                    
+                    Spacer()
+                }
+            }
+        }.navigationBarBackButtonHidden(true)
+    }
+}
+
 #Preview {
-    LogInView()
-//    ContentView()
+//    ProfileView()
+//    LogInView()
+    ContentView()
 }
