@@ -181,6 +181,7 @@ struct LogInView: View {
 
 struct ProfileView: View {
     @State private var isLoginPresented = false
+    @State private var isCalendarPresented = false //Calendar
     var body: some View {
         let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
         NavigationStack{
@@ -224,6 +225,29 @@ struct ProfileView: View {
                             .font(.largeTitle)
                             .foregroundStyle(ggblue)
                         Spacer()
+                    }
+                    
+//                  Create New Trips
+                    Button(action: {
+                        isCalendarPresented = true
+                    }) {
+                        HStack{
+                            ZStack {
+                                Circle()
+                                    .foregroundColor(ggblue)
+                                    .frame(width: 60, height: 60)
+                                Image(systemName: "plus")
+                                    .foregroundColor(.white)
+                                    .font(.largeTitle)
+                            }
+                            Text("Add")
+                                .foregroundColor(ggblue)
+                                .font(.title)
+                        }
+                    }
+                    .padding()
+                    .sheet(isPresented: $isCalendarPresented) {
+                         Calendar()
                     }
 
                     //trip links
