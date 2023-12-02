@@ -10,7 +10,7 @@ import Firebase
 import FirebaseCore
 import FirebaseAuth
 
-class Trip{
+struct Trip: Codable{
     var location: String?
     var totalBudget = 0
     var BudgetSpent = 0
