@@ -223,6 +223,7 @@ struct LogInView: View {
 struct ProfileView: View {
     @State private var isLoginPresented = false
     @State private var isCalendarPresented = false //Calendar
+    @State private var locations: [String] = []
     var body: some View {
         let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
         NavigationStack{
@@ -265,20 +266,17 @@ struct ProfileView: View {
                         Text("My Trips")
                             .font(.largeTitle)
                             .foregroundStyle(ggblue)
+
                         Spacer()
+                    }
+                    List(locations, id: \.self){ loc in
+                        Text(loc)
                     }
                     
 //                  Create New Trips
                     Button(action: {
 //                        let trip = Trip(location: "beep")
 //                        setTrip(email: email, trip: trip)
-
-
-//                        var help: [String] = []
-//                        Task{
-//                            await help = getTrips(email: email)
-//                            print(help)
-//                        }
                         
                         isCalendarPresented = true
                     }) {
@@ -307,6 +305,9 @@ struct ProfileView: View {
                 }
             }
         }.navigationBarBackButtonHidden(true)
+            .task {
+                await locations = getAllTripsNames(email: "niket_bansal@berkeley.edu")
+            }
     }
 }
 
