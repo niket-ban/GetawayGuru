@@ -9,17 +9,21 @@ import SwiftUI
 import Firebase
 import FirebaseCore
 import FirebaseAuth
+import FirebaseFirestore
+
+let db = Firestore.firestore()
+var email = ""
 
 struct Trip: Codable{
-    var location: String?
-    var totalBudget = 0
-    var BudgetSpent = 0
-    var FoodBudget = 0
-    var FoodBudgetSpent = 0
-    var GasBudget = 0
-    var GasBudgetSpent = 0
-    var HotelBudget = 0
-    var HotelBudgetSpent = 0
+    var location: String
+    var totalBudget: Int?
+    var BudgetSpent: Int?
+    var FoodBudget: Int?
+    var FoodBudgetSpent: Int?
+    var GasBudget: Int?
+    var GasBudgetSpent: Int?
+    var HotelBudget: Int?
+    var HotelBudgetSpent: Int?
 }
 
 func signUpWithEmailPassword(email: String, password: String) async -> Bool {
@@ -53,6 +57,42 @@ func signOut(){
     }
 }
 
+func setTrip(email: String, trip: Trip){
+    do{
+        try db.collection(email).document(trip.location).setData(from: trip)
+    } catch let error {
+        print("error \(error)")
+    }
+}
+
+func getTrip(email: String, location: String) -> Trip {
+    let docRef = db.collection(email).document(location)
+    var toret:Trip = Trip(location: "bork")
+
+    docRef.getDocument(as: Trip.self) { result in
+      switch result {
+      case .success(let Trip):
+        print("Trip: \(Trip)")
+        toret = Trip
+      case .failure(let error):
+        print("Error decoding Trip: \(error)")
+      }
+    }
+    return toret
+}
+
+func getAllTripsNames(email: String) async -> [String] {
+    let collectionRef = db.collection(email)
+
+    do {
+        let documentsSnapshot = try await collectionRef.getDocuments()
+        let documentNames = documentsSnapshot.documents.compactMap { $0.documentID }
+        return documentNames
+    } catch {
+        print("Error fetching document names: \(error.localizedDescription)")
+        return []
+    }
+}
 
 struct ContentView: View {
     let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
@@ -158,6 +198,7 @@ struct LogInView: View {
                     Button(action: {
                         Task{
                             await isPresented = signInWithEmailPassword(email:username, password:password)
+                            email = username.lowercased()
                         }
                         
                     }, label: {
@@ -229,6 +270,16 @@ struct ProfileView: View {
                     
 //                  Create New Trips
                     Button(action: {
+//                        let trip = Trip(location: "beep")
+//                        setTrip(email: email, trip: trip)
+
+
+//                        var help: [String] = []
+//                        Task{
+//                            await help = getTrips(email: email)
+//                            print(help)
+//                        }
+                        
                         isCalendarPresented = true
                     }) {
                         HStack{
