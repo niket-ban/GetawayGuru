@@ -296,7 +296,7 @@ struct ProfileView: View {
                     }
                     .padding()
                     .sheet(isPresented: $isCalendarPresented) {
-                         Calendar()
+                         CalendarView()
                     }
 
                     //trip links
