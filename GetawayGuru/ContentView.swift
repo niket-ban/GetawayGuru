@@ -65,7 +65,7 @@ func setTrip(email: String, trip: Trip){
     }
 }
 
-func getTrip(email: String, location: String) -> Trip {
+func getTrip(email: String, location: String) async -> Trip {
     let docRef = db.collection(email).document(location)
     var toret:Trip = Trip(location: "bork")
 
@@ -272,7 +272,7 @@ struct ProfileView: View {
                     }
 
                     List(locations, id:\.self){ loc in
-                        NavigationLink(destination: NavView(trip: Trip(location: "wow"))) {
+                        NavigationLink(destination: NavView(location: loc)) {
                             Text(loc)
                         }
                     }
@@ -315,7 +315,8 @@ struct ProfileView: View {
 }
 
 struct NavView: View {
-    var trip: Trip
+    var location: String
+    @State var trip: Trip = Trip(location: "trip")
     var body: some View {
         let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
         NavigationStack{
@@ -364,6 +365,9 @@ struct NavView: View {
                     
                 }
             }
+        }
+        .task {
+            await trip = getTrip(email: email, location: location)
         }
 //        .navigationBarBackButtonHidden(true)
     }
