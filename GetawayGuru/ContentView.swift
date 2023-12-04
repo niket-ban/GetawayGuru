@@ -305,7 +305,7 @@ struct ProfileView: View {
             }
         }.navigationBarBackButtonHidden(true)
             .task {
-                await locations = getAllTripsNames(email: "niket_bansal@berkeley.edu")
+                await locations = getAllTripsNames(email: email)
             }
     }
 }
@@ -370,8 +370,8 @@ struct NavView: View {
 }
 
 #Preview {
-    ProfileView()
+//    ProfileView()
 //    LogInView()
 //    NavView(trip: Trip(location: "Kelp"))
-//    ContentView()
+    ContentView()
 }
