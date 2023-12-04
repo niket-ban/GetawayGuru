@@ -224,6 +224,7 @@ struct ProfileView: View {
     @State private var isLoginPresented = false
     @State private var isCalendarPresented = false //Calendar
     @State private var locations: [String] = []
+    @State private var isNavPresented = false
     var body: some View {
         let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
         NavigationStack{
@@ -269,10 +270,12 @@ struct ProfileView: View {
 
                         Spacer()
                     }
-                    List(locations, id: \.self){ loc in
-                        Text(loc)
+
+                    List(locations, id:\.self){ loc in
+                        NavigationLink(destination: NavView(trip: Trip(location: "wow"))) {
+                            Text(loc)
+                        }
                     }
-                    
 //                  Create New Trips
                     Button(action: {
 //                        let trip = Trip(location: "beep")
@@ -311,8 +314,64 @@ struct ProfileView: View {
     }
 }
 
+struct NavView: View {
+    var trip: Trip
+    var body: some View {
+        let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
+        NavigationStack{
+            ZStack{
+                Rectangle()
+                    .foregroundStyle(ggblue)
+                    .frame(height: 950)
+                VStack{
+                    Text(trip.location)
+                        .font(.largeTitle).bold()
+                    Spacer()
+                        .frame(height: 300)
+                    Button(action: {
+                    }, label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15.0)
+                                .frame(width: 293, height: 62)
+                                .foregroundStyle(.white)
+                            Text("Expenses")
+                                .foregroundStyle(.black)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        }
+                    })
+                    Button(action: {
+                    }, label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15.0)
+                                .frame(width: 293, height: 62)
+                                .foregroundStyle(.white)
+                            Text("Preparation Items")
+                                .foregroundStyle(.black)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        }
+                    })
+                    Button(action: {
+                    }, label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15.0)
+                                .frame(width: 293, height: 62)
+                                .foregroundStyle(.white)
+                            Text("Calendar")
+                                .foregroundStyle(.black)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        }
+                    })
+                    
+                }
+            }
+        }
+//        .navigationBarBackButtonHidden(true)
+    }
+}
+
 #Preview {
-//    ProfileView()
+    ProfileView()
 //    LogInView()
-    ContentView()
+//    NavView(trip: Trip(location: "Kelp"))
+//    ContentView()
 }
