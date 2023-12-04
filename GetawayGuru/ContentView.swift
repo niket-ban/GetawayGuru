@@ -66,19 +66,15 @@ func setTrip(email: String, trip: Trip){
 }
 
 func getTrip(email: String, location: String) async -> Trip {
-    let docRef = db.collection(email).document(location)
-    var toret:Trip = Trip(location: "bork")
+    let collectionRef = db.collection(email).document(location)
 
-    docRef.getDocument(as: Trip.self) { result in
-      switch result {
-      case .success(let Trip):
-        print("Trip: \(Trip)")
-        toret = Trip
-      case .failure(let error):
-        print("Error decoding Trip: \(error)")
-      }
+    do {
+        let documentsSnapshot = try await collectionRef.getDocument(as: Trip.self)
+        return documentsSnapshot
+    } catch {
+        print("Error fetching document names: \(error.localizedDescription)")
+        return Trip(location: "fail get")
     }
-    return toret
 }
 
 func getAllTripsNames(email: String) async -> [String] {
