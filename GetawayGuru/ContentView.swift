@@ -69,14 +69,9 @@ func setTrip(email: String, trip: Trip){
     }
 }
 
-<<<<<<< HEAD
-func getTrip(email: String, location: String) -> Trip {
-    let docRef = db.collection(email).document(location)
-    var toret:Trip = Trip(location: location)
-=======
+
 func getTrip(email: String, location: String) async -> Trip {
     let collectionRef = db.collection(email).document(location)
->>>>>>> e0afcdcda5204d3a5d7bbbae7e2edde5098aaf5d
 
     do {
         let documentSnapshot = try await collectionRef.getDocument()
