@@ -25,6 +25,8 @@ struct Trip: Codable{
     var HotelBudget: Int?
     var HotelBudgetSpent: Int?
     var PreparationItems: [Item]?
+    var startdates: [Date]?
+    var notes: [Date: String]?
 }
 
 func signUpWithEmailPassword(email: String, password: String) async -> Bool {
@@ -70,11 +72,16 @@ func getTrip(email: String, location: String) async -> Trip {
     let collectionRef = db.collection(email).document(location)
 
     do {
-        let documentsSnapshot = try await collectionRef.getDocument(as: Trip.self)
-        return documentsSnapshot
+        let documentSnapshot = try await collectionRef.getDocument()
+        if let trip = try? documentSnapshot.data(as: Trip.self) {
+            return trip
+        } else {
+            print("Document exists but failed to decode: \(documentSnapshot.data())")
+            return Trip(location: "fail get", startdates: [], notes: [:])
+        }
     } catch {
-        print("Error fetching document names: \(error.localizedDescription)")
-        return Trip(location: "fail get")
+        print("Error fetching document: \(error.localizedDescription)")
+        return Trip(location: "fail get", startdates: [], notes: [:])
     }
 }
 
@@ -256,18 +263,30 @@ struct ProfileView: View {
                             }
                         }
                     }
-                    Spacer()
-                        .frame(height: 50)
-                    HStack{
-                        Spacer()
-                            .frame(width: 15)
+                    
+                    HStack {
+                        
                         Text("My Trips")
                             .font(.largeTitle)
                             .foregroundStyle(ggblue)
-
+                            .padding(.leading, 15)
                         Spacer()
+                        
+                        Button(action: {
+                            Task {
+                                await fetchTripNames()
+                            }
+                        }) {
+                            Image(systemName: "arrow.clockwise")
+                        }
+                        .padding()
+                        .background(ggblue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                        .padding(.trailing, 15)
                     }
-
+                    .padding(.top, 50)
+                    
                     List(locations, id:\.self){ loc in
                         NavigationLink(destination: NavView(location: loc)) {
                             Text(loc)
@@ -296,7 +315,7 @@ struct ProfileView: View {
                     }
                     .padding()
                     .sheet(isPresented: $isCalendarPresented) {
-                         CalendarView()
+                        CalendarView(email:email)
                     }
 
                     //trip links
@@ -304,16 +323,26 @@ struct ProfileView: View {
                     Spacer()
                 }
             }
-        }.navigationBarBackButtonHidden(true)
-            .task {
-                await locations = getAllTripsNames(email: email)
-            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .task {
+//            await locations = getAllTripsNames(email: email)
+            await fetchTripNames()
+        }
+    }
+    // Function to fetch trip names
+    private func fetchTripNames() async {
+        self.locations = await getAllTripsNames(email: email)
     }
 }
 
 struct NavView: View {
     var location: String
-    @State var trip: Trip = Trip(location: "trip")
+//    @State var trip: Trip = Trip(location: "trip")
+    @State var trip: Trip = Trip(location: "trip", startdates: [], notes: [:])
+    @State private var showDisplayCalendarView = false
+    @State private var showPreparationItems = false
+    
     var body: some View {
         let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
         NavigationStack{
@@ -337,19 +366,8 @@ struct NavView: View {
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         }
                     })
-                    
-                    NavigationLink(destination: Preparation(email: email, location: location)) {
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 15.0)
-                                .frame(width: 293, height: 62)
-                                .foregroundStyle(.white)
-                            Text("Preparation Items")
-                                .foregroundStyle(.black)
-                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        }
-                    }
-                    
                     Button(action: {
+                        showDisplayCalendarView = true
                     }, label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 15.0)
@@ -360,6 +378,26 @@ struct NavView: View {
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         }
                     })
+                    .sheet(isPresented: $showDisplayCalendarView) {
+                        DisplayCalendarView(email: email, trip: trip)
+                    }
+                    
+                    
+                    Button(action: {
+                        showPreparationItems = true
+                    }, label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15.0)
+                                .frame(width: 293, height: 62)
+                                .foregroundStyle(.white)
+//                            Text("Calendar")
+                            Text("Preparation Items")
+                                .foregroundStyle(.black)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        }
+                    }) .sheet(isPresented: $showPreparationItems) {
+                        Preparation(email: email, location: trip.location)
+                    }
                     
                 }
             }
@@ -371,9 +409,13 @@ struct NavView: View {
     }
 }
 
+
+
 #Preview {
 //    ProfileView()
 //    LogInView()
 //    NavView(location: "L")
     ContentView()
 }
+
+

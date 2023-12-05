@@ -30,8 +30,8 @@
 		43DF8A3B2B19AAA900CCB899 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 43DF8A3A2B19AAA900CCB899 /* FirebaseFirestore */; };
 		43DF8A3D2B19AAA900CCB899 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 43DF8A3C2B19AAA900CCB899 /* FirebaseStorage */; };
 		43DF8A3F2B19AAA900CCB899 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 43DF8A3E2B19AAA900CCB899 /* FirebaseStorageCombine-Community */; };
-		BCFFE0A42B1D17240074E04E /* TripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE0A22B1D17240074E04E /* TripsView.swift */; };
 		BCFFE0A52B1D17240074E04E /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE0A32B1D17240074E04E /* Calendar.swift */; };
+		E747F7DD2B1EF5F900AF45BC /* DisplayCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747F7DC2B1EF5F900AF45BC /* DisplayCalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +64,8 @@
 		4377FD002B0D8AF800A5010E /* GetawayGuruUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetawayGuruUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		43DF8A232B17337400CCB899 /* Preparation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preparation.swift; sourceTree = "<group>"; };
 		43DF8A272B19440900CCB899 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		BCFFE0A22B1D17240074E04E /* TripsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsView.swift; sourceTree = "<group>"; };
 		BCFFE0A32B1D17240074E04E /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		E747F7DC2B1EF5F900AF45BC /* DisplayCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,11 +127,11 @@
 			isa = PBXGroup;
 			children = (
 				43DF8A272B19440900CCB899 /* GoogleService-Info.plist */,
+				E747F7DC2B1EF5F900AF45BC /* DisplayCalendarView.swift */,
 				4377FCE32B0D8AF700A5010E /* GetawayGuruApp.swift */,
 				4377FCE52B0D8AF700A5010E /* ContentView.swift */,
 				43DF8A232B17337400CCB899 /* Preparation.swift */,
 				BCFFE0A32B1D17240074E04E /* Calendar.swift */,
-				BCFFE0A22B1D17240074E04E /* TripsView.swift */,
 				4377FCE72B0D8AF800A5010E /* Assets.xcassets */,
 				4377FCE92B0D8AF800A5010E /* Preview Content */,
 			);
@@ -314,7 +314,7 @@
 				4377FCE62B0D8AF700A5010E /* ContentView.swift in Sources */,
 				4377FCE42B0D8AF700A5010E /* GetawayGuruApp.swift in Sources */,
 				43DF8A242B17337400CCB899 /* Preparation.swift in Sources */,
-				BCFFE0A42B1D17240074E04E /* TripsView.swift in Sources */,
+				E747F7DD2B1EF5F900AF45BC /* DisplayCalendarView.swift in Sources */,
 				BCFFE0A52B1D17240074E04E /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

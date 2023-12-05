@@ -30,14 +30,7 @@ let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
                 ggblue
                 VStack {
                     HStack{
-                        Spacer()
-                        Button(action:{
-                            
-                        }) {
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(.white)
-                                .font(.system(size: 30))
-                        }
+                        
                         Spacer()
                         Text("Preparation Items")
                             .font(.title)
