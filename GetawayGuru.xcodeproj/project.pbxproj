@@ -31,8 +31,6 @@
 		43DF8A3D2B19AAA900CCB899 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 43DF8A3C2B19AAA900CCB899 /* FirebaseStorage */; };
 		43DF8A3F2B19AAA900CCB899 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 43DF8A3E2B19AAA900CCB899 /* FirebaseStorageCombine-Community */; };
 		9519E0DF2B1D44540087663A /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9519E0DE2B1D44540087663A /* Budget.swift */; };
-		9519E0E12B1D452D0087663A /* JosefinSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9519E0E02B1D452D0087663A /* JosefinSans.ttf */; };
-		BCFFE0A42B1D17240074E04E /* TripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE0A22B1D17240074E04E /* TripsView.swift */; };
 		BCFFE0A52B1D17240074E04E /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE0A32B1D17240074E04E /* Calendar.swift */; };
 		E747F7DD2B1EF5F900AF45BC /* DisplayCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747F7DC2B1EF5F900AF45BC /* DisplayCalendarView.swift */; };
 /* End PBXBuildFile section */
@@ -68,9 +66,7 @@
 		43DF8A232B17337400CCB899 /* Preparation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preparation.swift; sourceTree = "<group>"; };
 		43DF8A272B19440900CCB899 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9519E0DE2B1D44540087663A /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
-		9519E0E02B1D452D0087663A /* JosefinSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = JosefinSans.ttf; path = "../../../Downloads/Josefin_Sans 2/JosefinSans.ttf"; sourceTree = "<group>"; };
 		9519E0E22B1D454C0087663A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		BCFFE0A22B1D17240074E04E /* TripsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsView.swift; sourceTree = "<group>"; };
 		BCFFE0A32B1D17240074E04E /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		E747F7DC2B1EF5F900AF45BC /* DisplayCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,8 +137,6 @@
 				4377FCE52B0D8AF700A5010E /* ContentView.swift */,
 				43DF8A232B17337400CCB899 /* Preparation.swift */,
 				BCFFE0A32B1D17240074E04E /* Calendar.swift */,
-				BCFFE0A22B1D17240074E04E /* TripsView.swift */,
-				9519E0E02B1D452D0087663A /* JosefinSans.ttf */,
 				4377FCE72B0D8AF800A5010E /* Assets.xcassets */,
 				4377FCE92B0D8AF800A5010E /* Preview Content */,
 			);
@@ -294,7 +288,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4377FCEB2B0D8AF800A5010E /* Preview Assets.xcassets in Resources */,
-				9519E0E12B1D452D0087663A /* JosefinSans.ttf in Resources */,
 				4377FCE82B0D8AF800A5010E /* Assets.xcassets in Resources */,
 				43DF8A282B19440900CCB899 /* GoogleService-Info.plist in Resources */,
 			);

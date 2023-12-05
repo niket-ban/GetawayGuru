@@ -344,6 +344,7 @@ struct NavView: View {
     @State var trip: Trip = Trip(location: "trip", startdates: [], notes: [:])
     @State private var showDisplayCalendarView = false
     @State private var showPreparationItems = false
+    @State private var showExpenses = false
     
     var body: some View {
         let ggblue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
@@ -358,6 +359,7 @@ struct NavView: View {
                     Spacer()
                         .frame(height: 300)
                     Button(action: {
+                        showExpenses = true
                     }, label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 15.0)
@@ -368,6 +370,9 @@ struct NavView: View {
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         }
                     })
+                    .sheet(isPresented: $showExpenses) {
+                        Budget(myTrip: trip)
+                    }
                     Button(action: {
                         showDisplayCalendarView = true
                     }, label: {
