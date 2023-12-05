@@ -16,15 +16,15 @@ var email = ""
 
 struct Trip: Codable{
     var location: String
-    var totalBudget: Int?
-    var totalLeft: Int?
-    var BudgetSpent: Int?
-    var FoodBudget: Int?
-    var FoodBudgetSpent: Int?
-    var GasBudget: Int?
-    var GasBudgetSpent: Int?
-    var HotelBudget: Int?
-    var HotelBudgetSpent: Int?
+    var totalBudget: Int? = 0
+    var totalLeft: Int? = 0
+    var BudgetSpent: Int? = 0
+    var FoodBudget: Int? = 0
+    var FoodBudgetSpent: Int? = 0
+    var GasBudget: Int? = 0
+    var GasBudgetSpent: Int? = 0
+    var HotelBudget: Int? = 0
+    var HotelBudgetSpent: Int? = 0
     var PreparationItems: [Item]?
     var startdates: [Date]?
     var notes: [Date: String]?
@@ -371,7 +371,7 @@ struct NavView: View {
                         }
                     })
                     .sheet(isPresented: $showExpenses) {
-                        Budget(myTrip: trip)
+                        Budget(myTrip: trip, email: email)
                     }
                     Button(action: {
                         showDisplayCalendarView = true

@@ -12,9 +12,12 @@ struct Budget: View {
     @State private var isFoodExpenseEntryPresented = false
     @State private var isGasExpenseEntryPresented = false
     @State private var isHotelExpenseEntryPresented = false
+    @State private var isAddExpensePresented = false
     
 
     @State var myTrip: Trip
+    @State var email: String
+    
     let bgProgress = Color(red:0.9294117647058824, green:0.9294117647058824, blue: 0.9294117647058824)
     let fgProgress = Color(red: 0.43529411764705883, green: 0.8274509803921568, blue: 1)
     var body: some View {
@@ -29,13 +32,18 @@ struct Budget: View {
                 Spacer().frame(width:90)
                 Text("Expenses").font(.system(size: 32))
                 Spacer().frame(width:90)
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    isAddExpensePresented.toggle()
+                }, label: {
                     Text("+")
                         .foregroundColor(.black)
                         .font(.system(size: 32))
                 })
-            }
+            }.sheet(isPresented: $isAddExpensePresented, content: {
+                addBudget(isPresented: $isAddExpensePresented, currTrip: $myTrip, email: email)
+            })
             HStack {
+                
                 Text(myTrip.location)
                     .font(Font.custom("JosefinSans", size: 32))
                 Spacer().frame(width: 280)
@@ -43,9 +51,19 @@ struct Budget: View {
                 
             HStack {
                 if let unwrappedTotalLeft = myTrip.totalLeft {
-                    Text("$\(unwrappedTotalLeft)")
-                        .font(.system(size: 64))
-                        .fontWeight(.semibold)
+                        Text("$\(unwrappedTotalLeft)")
+                            .font(.system(size: 64))
+                            .fontWeight(.semibold)
+                } else {
+                    if let total = myTrip.totalBudget {
+                        Text("$\(total)")
+                            .font(.system(size: 64))
+                            .fontWeight(.semibold)
+                    } else {
+                        Text("$0")
+                            .font(.system(size: 64))
+                            .fontWeight(.semibold)
+                    }
                 }
                     
                 Text("Left")
@@ -71,7 +89,21 @@ struct Budget: View {
                                 RoundedRectangle(cornerRadius: 75.0)
                                     .frame(width: width, height: 25)
                                     .offset(x: -(341 - width) / 2, y: 0).foregroundColor(Color(red:0, green: 0.6392156862745098, blue:1)))
+                    } else {
+                        let width = CGFloat(0)
+                        RoundedRectangle(cornerRadius: 75.0).frame(width: 341, height: 25).foregroundColor(Color(red:0, green: 0.2784313725490196, blue:0.3686274509803922))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 75.0)
+                                    .frame(width: width, height: 25)
+                                    .offset(x: -(341 - width) / 2, y: 0).foregroundColor(Color(red:0, green: 0.6392156862745098, blue:1)))
                     }
+                } else {
+                    let width = CGFloat(0)
+                    RoundedRectangle(cornerRadius: 75.0).frame(width: 341, height: 25).foregroundColor(Color(red:0, green: 0.2784313725490196, blue:0.3686274509803922))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 75.0)
+                                .frame(width: width, height: 25)
+                                .offset(x: -(341 - width) / 2, y: 0).foregroundColor(Color(red:0, green: 0.6392156862745098, blue:1)))
                 }
                 Spacer().frame(width: 20)
             }
@@ -79,7 +111,11 @@ struct Budget: View {
                 if let totalBudget = myTrip.totalBudget {
                     if let totalSpent = myTrip.BudgetSpent {
                         Text("$\(totalSpent) of $\(totalBudget) spent")
+                    } else {
+                        Text("$0 of $\(totalBudget) spent")
                     }
+                } else {
+                    Text("$0 of $0 spent")
                 }
                 Spacer().frame(width: 160)
             }
@@ -119,7 +155,29 @@ struct Budget: View {
                                         .foregroundColor(fgProgress)
                                         .offset(x: (width - 329)/2, y:0)
                                 )
+                        } else {
+                            let width = CGFloat(0)
+                            Rectangle()
+                                .frame(width: 329, height: 35)
+                                .foregroundColor(bgProgress)
+                                .overlay(
+                                    Rectangle()
+                                        .frame(width: width, height:35)
+                                        .foregroundColor(fgProgress)
+                                        .offset(x: (width - 329)/2, y:0)
+                                )
                         }
+                    } else {
+                        let width = CGFloat(0)
+                        Rectangle()
+                            .frame(width: 329, height: 35)
+                            .foregroundColor(bgProgress)
+                            .overlay(
+                                Rectangle()
+                                    .frame(width: width, height:35)
+                                    .foregroundColor(fgProgress)
+                                    .offset(x: (width - 329)/2, y:0)
+                            )
                     }
                     HStack {
                         if let foodBudget = myTrip.FoodBudget {
@@ -135,7 +193,31 @@ struct Budget: View {
                                 Text("$\(foodBudget - foodSpent) left")
                                     .font(.system(size: 20))
                                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            } else {
+                                Text("$0")
+                                    .font(.system(size: 20))
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                Text("of $\(foodBudget)")
+                                    .font(.system(size: 20))
+                                    .foregroundColor(Color.gray)
+                                Spacer()
+                                    .frame(width:130)
+                                Text("$\(foodBudget) left")
+                                    .font(.system(size: 20))
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                             }
+                        } else {
+                            Text("$0")
+                                .font(.system(size: 20))
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            Text("of $0")
+                                .font(.system(size: 20))
+                                .foregroundColor(Color.gray)
+                            Spacer()
+                                .frame(width:130)
+                            Text("$0 left")
+                                .font(.system(size: 20))
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         }
                         
                     }
@@ -171,8 +253,28 @@ struct Budget: View {
                                         .frame(width: width, height:35)
                                         .foregroundColor(fgProgress)
                                         .offset(x: (width - 329)/2, y:0))
-                            }
+                        } else {
+                            let width = CGFloat(0)
+                            Rectangle()
+                                .frame(width: 329, height: 35)
+                                .foregroundColor(bgProgress)
+                                .overlay(
+                                    Rectangle()
+                                        .frame(width: width, height:35)
+                                        .foregroundColor(fgProgress)
+                                        .offset(x: (width - 329)/2, y:0))
                         }
+                    } else {
+                        let width = CGFloat(0)
+                        Rectangle()
+                            .frame(width: 329, height: 35)
+                            .foregroundColor(bgProgress)
+                            .overlay(
+                                Rectangle()
+                                    .frame(width: width, height:35)
+                                    .foregroundColor(fgProgress)
+                                    .offset(x: (width - 329)/2, y:0))
+                    }
                     HStack {
                         if let gasBudget = myTrip.GasBudget {
                         if let gasSpent = myTrip.GasBudgetSpent {
@@ -187,7 +289,31 @@ struct Budget: View {
                             Text("$\(gasBudget - gasSpent) left")
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
-                            }
+                        } else {
+                            Text("$0")
+                                .font(.system(size: 20))
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            Text("of $\(gasBudget)")
+                                .font(.system(size: 20))
+                                .foregroundColor(Color.gray)
+                            Spacer()
+                                .frame(width:130)
+                            Text("$\(gasBudget) left")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                        }
+                        } else {
+                            Text("$0")
+                                .font(.system(size: 20))
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            Text("of $0")
+                                .font(.system(size: 20))
+                                .foregroundColor(Color.gray)
+                            Spacer()
+                                .frame(width:130)
+                            Text("$0 left")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
                         }
                         
                     }
@@ -221,7 +347,27 @@ struct Budget: View {
                                         .frame(width: width, height:35)
                                         .foregroundColor(fgProgress)
                                         .offset(x: (width - 329)/2, y:0))
+                        } else {
+                            let width = CGFloat(0)
+                            Rectangle()
+                                .frame(width: 329, height: 35)
+                                .foregroundColor(bgProgress)
+                                .overlay(
+                                    Rectangle()
+                                        .frame(width: width, height:35)
+                                        .foregroundColor(fgProgress)
+                                        .offset(x: (width - 329)/2, y:0))
                         }
+                    } else {
+                        let width = CGFloat(0)
+                        Rectangle()
+                            .frame(width: 329, height: 35)
+                            .foregroundColor(bgProgress)
+                            .overlay(
+                                Rectangle()
+                                    .frame(width: width, height:35)
+                                    .foregroundColor(fgProgress)
+                                    .offset(x: (width - 329)/2, y:0))
                     }
                     HStack {
                         if let hotelBudget = myTrip.HotelBudget {
@@ -239,7 +385,35 @@ struct Budget: View {
                             Text("$\(hotelBudget - hotelSpent) left")
                                 .font(.system(size: 20))
                                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        } else {
+                            Text("$0")
+                                .font(.system(size: 20))
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                       
+                        
+                            Text("of $\(hotelBudget)")
+                                .font(.system(size: 20))
+                                .foregroundColor(Color.gray)
+                            Spacer()
+                                .frame(width:100)
+                            Text("$\(hotelBudget) left")
+                                .font(.system(size: 20))
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         }
+                        } else {
+                            Text("$0")
+                                .font(.system(size: 20))
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                       
+                        
+                            Text("of $0")
+                                .font(.system(size: 20))
+                                .foregroundColor(Color.gray)
+                            Spacer()
+                                .frame(width:100)
+                            Text("$0 left")
+                                .font(.system(size: 20))
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         }
                         
                     }
@@ -266,12 +440,29 @@ struct editFoodExpense: View {
                                     // Handle saving the expense with the entered amount
                     if let budget = currTrip.BudgetSpent {
                         currTrip.BudgetSpent = budget + amount
+                        setTrip(email: email, trip: currTrip)
+                    } else {
+                        currTrip.BudgetSpent = amount
+                        setTrip(email: email, trip: currTrip)
                     }
                     if let spent = currTrip.totalLeft {
                         currTrip.totalLeft = spent - amount
+                        setTrip(email: email, trip: currTrip)
+                    } else {
+                        if let budget = currTrip.BudgetSpent {
+                            currTrip.totalLeft = budget
+                            setTrip(email: email, trip: currTrip)
+                        } else {
+                            currTrip.totalLeft = amount
+                            setTrip(email: email, trip: currTrip)
+                        }
                     }
                     if let foodSpent = currTrip.FoodBudgetSpent {
                         currTrip.FoodBudgetSpent = foodSpent + amount
+                        setTrip(email: email, trip: currTrip)
+                    } else {
+                        currTrip.FoodBudgetSpent = amount
+                        setTrip(email: email, trip: currTrip)
                     }
                                     print("Expense Amount: \(amount)")
                                     isPresented.toggle()
@@ -299,13 +490,31 @@ struct editGasExpense: View {
                 if let amount = Int(expenseAmount) {
                                     // Handle saving the expense with the entered amount
                     if let budget = currTrip.BudgetSpent {
+                        
                         currTrip.BudgetSpent = budget + amount
+                        setTrip(email: email, trip: currTrip)
+                    } else {
+                        currTrip.BudgetSpent = amount
+                        setTrip(email: email, trip: currTrip)
                     }
                     if let spent = currTrip.totalLeft {
                         currTrip.totalLeft = spent - amount
+                        setTrip(email: email, trip: currTrip)
+                    } else {
+                        if let budget = currTrip.BudgetSpent {
+                            currTrip.totalLeft = budget
+                            setTrip(email: email, trip: currTrip)
+                        } else {
+                            currTrip.totalLeft = amount
+                            setTrip(email: email, trip: currTrip)
+                        }
                     }
                     if let gasSpent = currTrip.GasBudgetSpent {
                         currTrip.GasBudgetSpent = gasSpent + amount
+                        setTrip(email: email, trip: currTrip)
+                    } else {
+                        currTrip.GasBudgetSpent = amount
+                        setTrip(email: email, trip: currTrip)
                     }
                                     print("Expense Amount: \(amount)")
                                     isPresented.toggle()
@@ -334,12 +543,29 @@ struct editHotelExpense: View {
                                     // Handle saving the expense with the entered amount
                     if let budget = currTrip.BudgetSpent {
                         currTrip.BudgetSpent = budget + amount
+                        setTrip(email: email, trip: currTrip)
+                    } else {
+                        currTrip.BudgetSpent = amount
+                        setTrip(email: email, trip: currTrip)
                     }
                     if let spent = currTrip.totalLeft {
                         currTrip.totalLeft = spent - amount
+                        setTrip(email: email, trip: currTrip)
+                    } else {
+                        if let budget = currTrip.BudgetSpent {
+                            currTrip.totalLeft = budget
+                            setTrip(email: email, trip: currTrip)
+                        } else {
+                            currTrip.totalLeft = amount
+                            setTrip(email: email, trip: currTrip)
+                        }
                     }
                     if let hotelSpent = currTrip.HotelBudgetSpent {
                         currTrip.HotelBudgetSpent = hotelSpent + amount
+                        setTrip(email: email, trip: currTrip)
+                    } else {
+                        currTrip.HotelBudgetSpent = amount
+                        setTrip(email: email, trip: currTrip)
                     }
                                     print("Expense Amount: \(amount)")
                                     isPresented.toggle()
@@ -352,7 +578,63 @@ struct editHotelExpense: View {
     }
 }
 
+struct addBudget: View {
+    @Binding var isPresented: Bool
+    @Binding var currTrip: Trip
+    @State private var totalBudget: String = ""
+    @State private var foodBudget: String = ""
+    @State private var gasBudget: String = ""
+    @State private var hotelBudget: String = ""
+    @State var email: String
+    
+    var body: some View {
+        VStack {
+            TextField("Enter Total Budget Amount", text: $totalBudget)
+                            .padding()
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.numberPad)
+            TextField("Enter Food Budget Amount", text: $foodBudget)
+                            .padding()
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.numberPad)
+            TextField("Enter Gas Budget Amount", text: $gasBudget)
+                            .padding()
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.numberPad)
+            TextField("Enter Hotel Budget Amount", text: $hotelBudget)
+                            .padding()
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.numberPad)
+            Button("Save Expense") {
+                if let totalAmount = Int(totalBudget) {
+                        currTrip.totalBudget = totalAmount
+                        currTrip.totalLeft = totalAmount
+                        setTrip(email: email, trip: currTrip)
+                    
+                    if let foodBudget = Int(foodBudget) {
+                        currTrip.FoodBudget = foodBudget
+                        setTrip(email: email, trip: currTrip)
+                    }
+                    if let gasBudget = Int(gasBudget) {
+                        currTrip.GasBudget = gasBudget
+                        setTrip(email: email, trip: currTrip)
+                    }
+                    if let hotelBudget = Int(hotelBudget) {
+                        currTrip.HotelBudget = hotelBudget
+                        setTrip(email: email, trip: currTrip)
+                    }
+                                    print("Expense Amount: \(totalAmount)")
+                                    
+                                    isPresented.toggle()
+                                } else {
+                                    // Handle invalid input (non-integer)
+                                    print("Invalid Expense Amount")
+                                }
+                    }
+        }
+    }
+}
 #Preview {
-    Budget(myTrip: Trip(location: "Maui", totalBudget: 2670, totalLeft: 1811, BudgetSpent: 859, FoodBudget: 300, FoodBudgetSpent: 209, GasBudget: 420, GasBudgetSpent: 50, HotelBudget: 1950, HotelBudgetSpent: 600))
+    Budget(myTrip: Trip(location: "Maui", totalBudget: 2670, totalLeft: 1811, BudgetSpent: 859, FoodBudget: 300, FoodBudgetSpent: 209, GasBudget: 420, GasBudgetSpent: 50, HotelBudget: 1950, HotelBudgetSpent: 600), email:"a@a.com")
 }
 
