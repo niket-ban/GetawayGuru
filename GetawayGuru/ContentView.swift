@@ -17,6 +17,7 @@ var email = ""
 struct Trip: Codable{
     var location: String
     var totalBudget: Int?
+    var totalLeft: Int?
     var BudgetSpent: Int?
     var FoodBudget: Int?
     var FoodBudgetSpent: Int?
@@ -67,7 +68,7 @@ func setTrip(email: String, trip: Trip){
 
 func getTrip(email: String, location: String) -> Trip {
     let docRef = db.collection(email).document(location)
-    var toret:Trip = Trip(location: "bork")
+    var toret:Trip = Trip(location: location)
 
     docRef.getDocument(as: Trip.self) { result in
       switch result {
