@@ -24,6 +24,7 @@ struct Trip: Codable{
     var GasBudgetSpent: Int?
     var HotelBudget: Int?
     var HotelBudgetSpent: Int?
+    var PreparationItems: [Item]?
 }
 
 func signUpWithEmailPassword(email: String, password: String) async -> Bool {
@@ -336,8 +337,8 @@ struct NavView: View {
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         }
                     })
-                    Button(action: {
-                    }, label: {
+                    
+                    NavigationLink(destination: Preparation(email: email, location: location)) {
                         ZStack{
                             RoundedRectangle(cornerRadius: 15.0)
                                 .frame(width: 293, height: 62)
@@ -346,7 +347,8 @@ struct NavView: View {
                                 .foregroundStyle(.black)
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         }
-                    })
+                    }
+                    
                     Button(action: {
                     }, label: {
                         ZStack{
@@ -372,6 +374,6 @@ struct NavView: View {
 #Preview {
 //    ProfileView()
 //    LogInView()
-//    NavView(trip: Trip(location: "Kelp"))
+//    NavView(location: "L")
     ContentView()
 }
